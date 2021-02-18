@@ -1,0 +1,87 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r50/three.min.js"></script>
+<!DOCTYPE html> 
+<html>
+<body>
+
+    <form action="/action_page.php" onsubmit="return myFunction()">
+
+        input array of numbers: <input type="text" id="age" size="20" name="age"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+    var threeSum = function(nums) {
+    var t,i,o;
+    
+    var a=0;
+    const lim=nums.length;
+    var k=[];
+    var s;
+    var z;
+    var b;
+    if (lim>2)
+    for (i=0;i<lim-2;i++)
+        for (t=i+1;t<lim-1;t++)
+            for (o=t+1;o<lim;o++)
+              if (nums[i]+nums[t]+nums[o]==0)
+                  {
+                      b=true;
+                      k.push([]);
+                      k[a].push(new Array(3));
+                      k[a][0]=nums[i];
+                      k[a][1]=nums[t];
+                      k[a][2]=nums[o];
+                      
+                      for (s=0;s<3;s++)
+                          for (var e=0;e<3;e++)
+                              if (k[a][s]<k[a][e])
+                                  {
+                                      z=k[a][s];
+                                      k[a][s]=k[a][e];
+                                      k[a][e]=z;
+                                  }
+                      
+                      for (s=0;s<a;s++)
+                          if ( (k[s][0]==k[a][0]) &&(k[s][1]==k[a][1])&&(k[s][2]==k[a][2]))
+                        {
+                            b=false;
+                        }
+                      
+                      if (b)
+                      a++;
+                      else
+                     k.pop();
+                  }
+    return k;
+    
+};
+
+var likely = function(reted){
+let re
+var ss= /(-\d{1,}|\d{1,})/g;
+re= reted.match(ss);
+return re;
+}
+
+
+function myFunction() {
+
+  var age = document.getElementById("age").value;
+  var u= new Array;
+  u=likely(age);
+
+  i= new Array;
+  
+  for (var k=0;k<u.length;k++)
+  i[k]= parseInt(u[k]);
+  
+  u= new Array;
+u=threeSum(i);
+  alert(u);
+  
+}
+    </script>
+
+</body>
+</html>
