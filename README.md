@@ -1,1 +1,1 @@
-just compile in visual studio this file :)
+just compile file "docker" in Visual studio :)
